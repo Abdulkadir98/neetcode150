@@ -47,7 +47,7 @@ Output: [""]
 """
 
 """
-Algorithm:
+Algorithm: (Using Escaping)
 Encoding Process
 - Initialize an empty string (or a string builder/stream for efficiency) to hold the encoded string.
 - Iterate over each string in the input list. For each string:
@@ -63,6 +63,9 @@ Decoding Process
 - If the character and the next one form the escaped slash //, add a single slash to the current string. Skip the next character in the string.
 - Otherwise, add the character to the current string.
 - Return the list of decoded strings after all characters in the encoded string have been processed.
+
+Alternatively, can use a non-ASCII character as a delimiter in the string but in real world applications any character 
+can be part of the string so it is not easy to differentiate between the delimiter character and the original string
 """
 
 class Codec:
