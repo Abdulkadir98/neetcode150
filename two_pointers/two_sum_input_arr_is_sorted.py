@@ -26,6 +26,8 @@ Output: [1,2]
 Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 """
 
+# Time complexity: O(n)
+# Space complexity: O(n)
 def two_sum(nums, target):
     num_idx_map = {}
     res = []
@@ -35,6 +37,22 @@ def two_sum(nums, target):
             break
         num_idx_map[nums[i]] = i + 1
     return res
+
+# We can use the property that the array is sorted, using two pointers we can do this in O(1) Space
+def two_sum_two_pointers(nums, target):
+    left = 0
+    right = len(nums) - 1
+
+    while left < right:
+        sum = nums[left] + nums[right]
+
+        if sum == target:
+            return [left + 1, right + 1]
+        elif sum < target:
+            left += 1
+        else:
+            right -= 1
+    return [-1, -1]
 
 def main():
     nums = [2, 7, 11, 15]
